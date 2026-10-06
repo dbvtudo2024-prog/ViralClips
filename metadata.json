@@ -1,0 +1,6 @@
+{
+  "name": "ViralClip Studio - Caçador & Editor de Vídeos Virais",
+  "description": "Busca vídeos virais no YouTube por categorias personalizadas, cortes automáticos inteligentes com IA, legendas animadas em múltiplos idiomas, agendamento de postagens, gestão de contas e painel de analytics completo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

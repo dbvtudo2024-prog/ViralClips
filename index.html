@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      (function() {
+        try {
+          var target = typeof window !== 'undefined' ? window : (typeof globalThis !== 'undefined' ? globalThis : null);
+          if (target && target.fetch) {
+            var originalFetch = target.fetch.bind(target);
+            var currentFetch = originalFetch;
+            Object.defineProperty(target, 'fetch', {
+              get: function() {
+                return currentFetch || originalFetch;
+              },
+              set: function(val) {
+                currentFetch = typeof val === 'function' ? val.bind(target) : val;
+              },
+              configurable: true,
+              enumerable: true
+            });
+          }
+        } catch (e) {
+          // Fallback if property is not reconfigurable
+        }
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ViralClip Studio - Caçador & Editor de Vídeos Virais</title>
+    <meta name="description" content="Busca vídeos virais no YouTube por categorias personalizadas, cortes automáticos inteligentes com IA, legendas animadas em múltiplos idiomas, agendamento de postagens, gestão de contas e painel de analytics completo." />
+    <meta property="og:title" content="ViralClip Studio - Caçador & Editor de Vídeos Virais" />
+    <meta property="og:description" content="Busca vídeos virais no YouTube por categorias personalizadas, cortes automáticos inteligentes com IA, legendas animadas em múltiplos idiomas, agendamento de postagens, gestão de contas e painel de analytics completo." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
